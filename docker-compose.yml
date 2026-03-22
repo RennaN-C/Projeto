@@ -1,0 +1,30 @@
+services:
+  api:
+    build: .
+    container_name: coreflow_api
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+    env_file:
+      - .env
+    depends_on:
+      - db
+    command: npm run dev
+
+  db:
+    image: postgres:15-alpine
+    container_name: coreflow_db
+    restart: always
+    environment:
+      POSTGRES_USER: ${DB_USER:-postgres}
+      POSTGRES_PASSWORD: ${DB_PASS:-postgres}
+      POSTGRES_DB: ${DB_NAME:-coreflow}
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:
