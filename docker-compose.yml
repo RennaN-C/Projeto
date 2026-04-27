@@ -17,8 +17,8 @@ services:
       - coreflow_net
 
   api:
-    image: rennanmk9/coreflow:latest
-    build: .
+    build: ./backend        #
+    image: rennanmk9/coreflow-api:1.0.0
     container_name: coreflow_api
     ports:
       - "3001:3000"
@@ -32,8 +32,8 @@ services:
     command: npm run dev
 
   frontend:
-    image: rennanmk9/coreflow:latest
-    build: ./frontend
+    build: ./frontend      
+    image: rennanmk9/coreflow-front:1.0.0
     container_name: coreflow_frontend
     ports:
       - "8080:5173"
@@ -41,6 +41,7 @@ services:
       - coreflow_net
     depends_on:
       - api
+
 networks:
   coreflow_net:
     driver: bridge
