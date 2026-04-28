@@ -1,0 +1,20 @@
+# Dependências em qualquer lugar do projeto
+node_modules/
+**/node_modules/
+**/dist/
+**/build/
+
+# Variáveis sensíveis
+.env
+.env.*
+.env.local
+
+# Docker e Banco
+pgdata/
+.docker/
+
+# Logs e arquivos de sistema
+*.log
+.vscode/
+.DS_Store
+Thumbs.db
