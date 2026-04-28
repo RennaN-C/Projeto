@@ -1,11 +1,10 @@
-// src/routes/index.js
 const { Router } = require('express');
 const authRoutes = require('./auth.routes');
-const personRoutes = require('./person.routes'); // Importe a nova rota
+const personRoutes = require('./person.routes'); 
 
 const routes = Router();
 
 routes.use('/auth', authRoutes);
-routes.use('/persons', personRoutes); // Registre aqui!
+routes.use('/persons', personRoutes); 
 
 module.exports = routes;

@@ -1,7 +1,7 @@
 const { Person } = require('../models');
 
 class PersonController {
-  // Criar nova pessoa
+ 
   async store(req, res) {
     try {
       const { name, document, phone, email, metadata } = req.body;

@@ -16,7 +16,7 @@ business_type: {
   type: DataTypes.ENUM('academia', 'clinica', 'barbearia', 'igreja', 'varejo'),
   allowNull: false,
 },
-  document: { // CNPJ ou CPF
+  document: { 
     type: DataTypes.STRING,
     unique: true,
   },
