@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: coreflow-api-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: coreflow-api
+  template:
+    metadata:
+      labels:
+        app: coreflow-api
+    spec:
+      containers:
+      - name: coreflow-api
+        image: rennanmk9/coreflow-api:1.0.0
+        ports:
+        - containerPort: 3000
+        env:
+        - name: DB_HOST
+          value: "coreflow-db-service"

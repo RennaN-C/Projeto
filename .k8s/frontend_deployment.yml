@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: coreflow-front-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: coreflow-front
+  template:
+    metadata:
+      labels:
+        app: coreflow-front
+    spec:
+      containers:
+      - name: coreflow-front
+        image: rennanmk9/coreflow-front:1.0.0
+        ports:
+        - containerPort: 5173
